@@ -5,7 +5,42 @@
 今天就来撕开Class的糖衣包装，看看这些个关键字实际上是做了什么。
 
 ## 简单回顾一下class、extends、super、static用法
+```
+class Shape {                       // class 关键字用于定义一个类，这里定义了一个Shape类
+    constructor(length, width){     // 构造方法，每次new的时候都会调用这个方法
+        this.length = length;
+        this.width = width;
+    }
 
+    area (){                        // 定义了这个类的成员方法
+        return this.width * this.length;
+    }
+
+    static Shapize(length, width){  // 定义一个静态方法（类方法）
+        return new Shape(length, width);
+    }
+}
+
+class Square extends Shape {        // 定义一个
+    constructor(length, width){
+        super(length, width);
+    }
+
+    area(){
+        return this.length * this.width;
+    }
+}
+
+class Triangle extends Shape{
+    constructor(length, width){
+        super(length, width);
+    }
+
+    area(){
+        return this.length * this.width * 0.5;
+    }
+}
+```
 
 
 ## 翻译成ES5
