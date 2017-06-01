@@ -6,7 +6,7 @@
 
 ## 简单回顾一下class、extends、super、static用法
 ```
-class Shape {                       // class 关键字用于定义一个类，这里定义了一个Shape类
+class Shape {                       // class 关键字用于定义一个类，这里定义了一个Shape类
     constructor(length, width){     // 构造方法，每次new的时候都会调用这个方法
         this.length = length;
         this.width = width;
@@ -21,29 +21,43 @@ class Shape {                       // class 关键字用于定义一个类，�
     }
 }
 
-class Square extends Shape {        // 定义一个
+class Triangle extends Shape{       // 定义一个三角形
     constructor(length, width){
         super(length, width);
     }
 
-    area(){
-        return this.length * this.width;
-    }
-}
-
-class Triangle extends Shape{
-    constructor(length, width){
-        super(length, width);
-    }
-
-    area(){
+    area(){                         // 重载求面积的方法
         return this.length * this.width * 0.5;
     }
 }
 ```
-
+没什么好解释的，都在注释里。
 
 ## 翻译成ES5
+```
+function Shape(length, width){
+    this.length = length;
+    this.width = width;
+}
+
+Shape.prototype.area = function(){
+    return this.width * this.length;
+}
+
+Shape.Shapize = function(length, width){
+    return new Shape(length, width);
+}
+
+
+function Triangle(length, width){
+    Shape.call(this, length, width);
+}
+
+Triangle.prototype.area = function(){
+    return this.length * this.width * 0.5;
+}
+
+```
 
 ## 说说new的时候做了什么
 
