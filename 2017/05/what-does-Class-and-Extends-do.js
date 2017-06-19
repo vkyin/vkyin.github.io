@@ -73,9 +73,15 @@ class Triangle extends Shape {
 let shape = new Shape(2, 3);
 let triangle = new Triangle(2, 3);
 
-console.log(shape);// -> Shape {length: 2, width: 3, name: "Shape"}
-console.log(triangle);// -> Triangle {length: 2, width: 3, name: "Triangle"}
-console.log(shape.getName());// -> Shape
-console.log(triangle.getName());// -> Triangle
-console.log(shape.area());// -> 6
-console.log(triangle.area());// -> 3
+shape                       // -> Shape {length: 2, width: 3, name: "Shape"}
+triangle                    // -> Triangle {length: 2, width: 3, name: "Triangle"}
+shape.getName()             // -> Shape
+triangle.getName()          // -> Triangle
+shape.area()                // -> 6
+triangle.area()             // -> 3
+
+Shape.Shapize(4, 5).area()  // -> 20
+
+triangle.__proto__ === Triangle.prototype;      // -> true
+triangle.__proto__ instanceof Shape.prototype;  // -> true
+Triangle.prototype instanceof Shape.prototype;  // -> true
