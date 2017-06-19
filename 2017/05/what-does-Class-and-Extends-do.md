@@ -106,6 +106,8 @@ Triangle.prototype instanceof Shape.prototype;  // -> true
 ## 说说new的时候做了什么
 
 ![img][qrcode]
+
+asdfasf
 ## 总结
 
 
